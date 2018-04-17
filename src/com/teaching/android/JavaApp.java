@@ -1,5 +1,6 @@
 package com.teaching.android;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -8,37 +9,37 @@ import java.util.Scanner;
 public class JavaApp {
 
     public static void main(String[] args) {
-        /*
-        int n3=1;
-        System.out.println(n3);
-        //n3++;
-        System.out.println(n3++);
-        //++n3;
-        System.out.println(++n3);
-        //--n3;
-        System.out.println(--n3);
-        //n3--;
-        System.out.println(n3--);
-        System.out.println(n3+5);
-        */
-        /*
-        System.out.println(2+5-3*2);//1
-        System.out.println(2*4*2/2);//8
-        System.out.println(1/2);//0
-        System.out.println(5*(1/2));//0
-        System.out.println(5f*1/2);//2.5
-        */
+        //Adivinar numero sin bucle
         try (Scanner leer = new Scanner(System.in)) {
-            System.out.print("Introduce un numero: ");
-            int parImpar=leer.nextInt();
-            if ((parImpar % 2==0)) {
-                System.out.println("Numero : "+parImpar+" es par");
+            Random azar= new Random();
+            int numeroAzar= azar.nextInt(10)+1;
+            System.out.println("Numero secreto es: "+numeroAzar);
+            System.out.println("Introduce un numero a adivinar: ");
+            int adivinar=leer.nextInt();
+            if (adivinar==numeroAzar) {
+                System.out.println("Acertaste!!");
             }else{
-                System.out.println("Numero : "+parImpar+" es impar");
+                System.out.println("Introduce un numero a adivinar: ");
+                adivinar=leer.nextInt();
+                if(adivinar==numeroAzar){
+                    System.out.println("Acertaste!!");
+                }else{
+                    System.out.println("Introduce un numero a adivinar: ");
+                    adivinar=leer.nextInt();
+                    if(adivinar==numeroAzar){
+                        System.out.println("Acertaste!!");
+                    }else{
+                        System.out.println("Te quedaste sin intentos!!");
+                    }
+                }
+
             }
         } catch (Exception e) {
-            System.out.println("No se ha podido crear un lector de flujo del teclado");
+            System.out.println("No se ha podido crear un lector de flujo del teclado o insertado una letra");
         }
+        /*
+
+        */
     }
 
 }
