@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class JavaApp {
 
     public static void main(String[] args) {
+        /*
         //Adivinar numero sin bucle
         try (Scanner leer = new Scanner(System.in)) {
             Random azar= new Random();
@@ -47,6 +48,12 @@ public class JavaApp {
             }
         } catch (Exception e) {
             System.out.println("No se ha podido crear un lector de flujo del teclado o insertado una letra");
+        }
+        */
+        int j=0;
+        for (int i=1;i<=20;i++){
+            System.out.println(i+"º numero par es: "+j);
+            j=j+2;
         }
         /*
 
