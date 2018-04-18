@@ -19,7 +19,7 @@ public class JavaApp {
             if (adivinar==numeroAzar) {
                 System.out.println("Acertaste!!");
             }else{
-                if(numeroAzar<adivinar){
+                if(numeroAzar>adivinar){
                     System.out.println("Numero es menor y fallaste!!");
                 }else{
                     System.out.println("Numero es mayor y fallaste!!");
@@ -29,7 +29,7 @@ public class JavaApp {
                 if(adivinar==numeroAzar){
                     System.out.println("Acertaste!!");
                 }else{
-                    if(numeroAzar<adivinar){
+                    if(numeroAzar>adivinar){
                         System.out.println("Numero es menor y fallaste!!");
                     }else{
                         System.out.println("Numero es mayor y fallaste!!");
@@ -40,6 +40,7 @@ public class JavaApp {
                         System.out.println("Acertaste!!");
                     }else{
                         System.out.println("Te quedaste sin intentos!!");
+                        System.out.println("El numero correcto era: "+adivinar);
                     }
                 }
 
