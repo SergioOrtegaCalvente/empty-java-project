@@ -19,11 +19,21 @@ public class JavaApp {
             if (adivinar==numeroAzar) {
                 System.out.println("Acertaste!!");
             }else{
+                if(numeroAzar<adivinar){
+                    System.out.println("Numero es menor y fallaste!!");
+                }else{
+                    System.out.println("Numero es mayor y fallaste!!");
+                }
                 System.out.println("Introduce un numero a adivinar: ");
                 adivinar=leer.nextInt();
                 if(adivinar==numeroAzar){
                     System.out.println("Acertaste!!");
                 }else{
+                    if(numeroAzar<adivinar){
+                        System.out.println("Numero es menor y fallaste!!");
+                    }else{
+                        System.out.println("Numero es mayor y fallaste!!");
+                    }
                     System.out.println("Introduce un numero a adivinar: ");
                     adivinar=leer.nextInt();
                     if(adivinar==numeroAzar){
