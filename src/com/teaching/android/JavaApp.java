@@ -27,8 +27,11 @@ public class JavaApp {
                 case 4:
                     metodos.pagar();
                     break;
-                case 5:
+                case 6:
                     salir=false;
+                    break;
+                case 5:
+                    metodos.punto();
                     break;
                     default:
                         metodos.fallo();
