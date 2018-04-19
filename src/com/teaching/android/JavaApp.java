@@ -10,13 +10,31 @@ public class JavaApp {
 
     public static void main(String[] args) {
         Metodos metodos = new Metodos();
-        metodos.ingreso("Pepe",2000.0);
-        metodos.ingreso("Paco",54000.20);
-        System.out.println("Pago de paco a pepe");
-        System.out.println(metodos.mostar("Pepe"));
-        metodos.pagar("Pepe","Paco",200);
-        System.out.println("Pago realizado");
-        System.out.println(metodos.mostar("Pepe"));
+        boolean salir=true;
+        Scanner leer=new Scanner(System.in);
+        do{
+            metodos.menu();
+            switch (leer.nextInt()){
+                case 1:
+                    metodos.ingresarBanco();
+                    break;
+                case 2:
+                    metodos.buscarPersonas();
+                    break;
+                case 3:
+                    metodos.mostrarPersonas();
+                    break;
+                case 4:
+                    metodos.pagar();
+                    break;
+                case 5:
+                    salir=false;
+                    break;
+                    default:
+                        metodos.fallo();
+                        break;
+            }
+        }while(salir);
     }
 
 }

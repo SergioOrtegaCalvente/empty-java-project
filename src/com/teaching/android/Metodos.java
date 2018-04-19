@@ -1,40 +1,49 @@
 package com.teaching.android;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Metodos {
-    private ArrayList<Persona> personas;
+    private BancoPersonas personas;
+    private Scanner leerS;
+    private Scanner leerN;
 
     public Metodos() {
-        this.personas=new ArrayList();
+        this.personas=new BancoPersonas();
+        this.leerS=new Scanner(System.in);
+        this.leerN=new Scanner(System.in);
     }
-    public void ingreso(String a, Double b){
-        Persona p=new Persona(a,b);
-        aniadirPersona(p);
+    public void fallo(){
+        System.out.println("Te has equivocado");
     }
-    private void aniadirPersona(Persona a){
-        personas.add(a);
+    public void menu(){
+        System.out.println("-------------------------------------------");
+        System.out.println("1º Ingresa en el banco");
+        System.out.println("2º Busca una persona");
+        System.out.println("3º Mostrar a todos");
+        System.out.println("4º Pagar a otro");
+        System.out.println("5º Salir del progama");
     }
-    public void pagar(String nombreRecibeDinero, String nombrePagador, double dineroPagar){
-        int idRecibe=saberId(nombreRecibeDinero);
-        int idPagador=saberId(nombrePagador);
-        realizarPago(idRecibe,idPagador,dineroPagar);
+    public void ingresarBanco(){
+        System.out.println("Ingresa Nombre:");
+        String nombre=this.leerS.nextLine();
+        System.out.println("Ingresa el dinero inicial");
+        double dinero=this.leerN.nextDouble();
+        personas.ingresarPersona(nombre,dinero);
     }
-    private int saberId(String a){
-        int id=0;
-        for(int i=0;i<this.personas.size();i++){
-            if(personas.get(i).getNombre().equalsIgnoreCase(a)){
-                id=i;
-            }
-        }
-        return id;
+    public void mostrarPersonas(){
+        System.out.println(personas.mostarTodo());
     }
-    private void realizarPago(int idRecibe, int idPaga,double pago){
-        personas.get(idRecibe).setDinero(personas.get(idRecibe).getDinero()+pago);
-        personas.get(idPaga).setDinero(personas.get(idPaga).getDinero()-pago);
+    public void buscarPersonas(){
+        System.out.println("Ingresa nombre:");
+        System.out.println(this.personas.buscarPorNombre(this.leerS.nextLine()));
     }
-    public String mostar(String a){
-        return personas.get(saberId(a)).toString();
-
+    public void pagar(){
+        System.out.println("ingresa nombre del recibe dinero");
+        String recibeD=leerS.nextLine();
+        System.out.println("Ingresa nombre de quien paga");
+        String pagaD=leerS.nextLine();
+        System.out.println("Ingresa cantidad dinero");
+        double dinero=leerN.nextDouble();
+        this.personas.Pago(recibeD,pagaD,dinero);
     }
 }
