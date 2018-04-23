@@ -13,29 +13,8 @@ public class JavaApp {
         boolean salir=true;
         Scanner leer=new Scanner(System.in);
         do{
-            metodos.menu();
-            switch (leer.nextInt()){
-                case 1:
-                    metodos.ingresarBanco();
-                    break;
-                case 2:
-                    metodos.buscarPersonas();
-                    break;
-                case 3:
-                    metodos.mostrarPersonas();
-                    break;
-                case 4:
-                    metodos.pagar();
-                    break;
-                case 6:
-                    salir=false;
-                    break;
-                case 5:
-                    metodos.punto();
-                    break;
-                    default:
-                        metodos.fallo();
-                        break;
+            if(metodos.menu()!=0){
+                salir=false;
             }
         }while(salir);
     }
